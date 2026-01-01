@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",  // ✅ Enable static export for GitHub Pages
   images: {
-    unoptimized: true,  // ✅ Use original image URLs (no server optimization)
+    unoptimized: true,  // use original image URLs
     remotePatterns: [
       {
         protocol: 'https',
@@ -14,8 +13,8 @@ const nextConfig = {
       },
     ],
   },
-  // Uncomment and set this if your repo is NOT a user site
-  basePath: "/scaffolding",
+  // Remove output: "export" — Vercel handles SSR
+  // Remove basePath unless you actually want it in a subfolder
 };
 
 module.exports = nextConfig;

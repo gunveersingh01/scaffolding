@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { ArrowRight, Package } from 'lucide-react'
 import { Product } from '@/data/products'
-import AddToCartButton from './AddToCartButton'
 
 interface ProductCardProps {
   product: Product
@@ -50,9 +49,13 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </Link>
       
-      {/* Add to Cart Section */}
-      <div className="pt-4 border-t border-charcoal-100" onClick={(e) => e.stopPropagation()}>
-        <AddToCartButton product={product} showQuantitySelector={false} />
+      <div className="pt-4 border-t border-charcoal-100">
+        <Link
+          href={`/products/${product.categoryId}/${product.id}`}
+          className="inline-flex items-center justify-center w-full px-6 py-3 rounded-lg font-semibold bg-industrial-600 text-white hover:bg-industrial-700 transition-colors"
+        >
+          View
+        </Link>
       </div>
     </div>
   )
